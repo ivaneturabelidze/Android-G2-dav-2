@@ -37,7 +37,8 @@ class LoginActivity : AppCompatActivity() {
 
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                 if (it.isSuccessful){
-                    TODO()
+                    auth.signInWithEmailAndPassword(email, password)
+                    startActivity(Intent(this, ProfileActivity::class.java))
                 } else {
                     Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
@@ -51,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         forgotPasswordButton.setOnClickListener {
-            TODO()
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
         }
     }
 
